@@ -248,7 +248,6 @@ var GGBApplet = function() {
     return tubeurl;
   };
   var fetchParametersFromTube = function(successCallback, materialsApiURL) {
-      console.log('fetchParametersFromTube');
     var tubeurl = materialsApiURL
       ? materialsApiURL.substring(0, materialsApiURL.indexOf("/", 8))
       : getTubeURL();
