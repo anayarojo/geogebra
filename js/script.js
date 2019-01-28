@@ -106,6 +106,7 @@ var ggbApp = new GGBApplet(parameters, '5.0', views);
 
 window.addEventListener("load", function () {
     // ggbApp.setHTML5Codebase("https://cdn.geogebdra.org/apps/5.0.498.0/web3d");
-    ggbApp.setHTML5Codebase('js/lib/GeoGebra/HTML5/5.0/web3d/', true);
+    // ggbApp.setHTML5Codebase('js/lib/GeoGebra/HTML5/5.0/web3d/', true);
+    ggbApp.setHTML5Codebase('js/lib/GeoGebra/bundle-5-0-523-0/HTML5/5.0/web3d/', true);
     ggbApp.inject('ggb-element');
 });
