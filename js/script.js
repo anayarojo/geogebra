@@ -8,14 +8,20 @@ if(type == undefined || !types.includes(type)){
     window.location.replace('/?type=graphing');
 }
 
-function updateGeogrebra(params){
-    console.log('updateGeogrebra()');
-    console.log(params);
-}
-
-var callback = function(){
+function addOnGeogrebra(objectName){
     let ggb = window['ggbApplet'];
-    ggb.registerAddListener('updateGeogrebra');
+    let type = ggb.getObjectType(objectName);
+    console.log(type);
+
+    if(type == 'point') {
+        let coordX = ggb.getXcoord(objectName);
+        let coordY = ggb.getYcoord(objectName);
+        ggb.setCoords(objectName, coordX, coordY);
+    }
+};
+
+var callback = function(api){
+    api.registerAddListener('addOnGeogrebra');
 };
 
 var parameters = {};
@@ -37,7 +43,6 @@ if(type == 'classic')
 }
 else 
 {
-    /*
     parameters = {
         "id": "ggbApplet",
         "appName": type,
@@ -60,7 +65,8 @@ else
         // "buttonRounding":0.7,
         // "buttonShadows":false,
     };
-    */
+   
+    /*
    parameters = {
         "id": "ggbApplet",
         "width":1920,
@@ -80,8 +86,7 @@ else
         "preventFocus":false,
         "showZoomButtons":true,
         "capturingThreshold":3,
-        // add code here to run when the applet starts
-        "appletOnLoad":function(api){ /* api.evalCommand('Segment((1,2),(3,4))');*/ },
+        "appletOnLoad":function(api){},
         "showFullscreenButton":true,
         "scale":1,
         "disableAutoScale":false,
@@ -93,6 +98,7 @@ else
         "buttonShadows":false,
         "language":"es",
    };
+   */
 }
 
 var views = {'is3D': 0,'AV': 1,'SV': 0,'CV': 0,'EV2': 0,'CP': 0,'PC': 0,'DA': 0,'FI': 0,'macro': 0};
@@ -100,6 +106,7 @@ var ggbApp = new GGBApplet(parameters, '5.0', views);
 
 window.addEventListener("load", function () {
     // ggbApp.setHTML5Codebase("https://cdn.geogebdra.org/apps/5.0.498.0/web3d");
-    ggbApp.setHTML5Codebase('js/lib/GeoGebra/HTML5/5.0/web3d/', true);
+    // ggbApp.setHTML5Codebase('js/lib/GeoGebra/HTML5/5.0/web3d/', true);
+    ggbApp.setHTML5Codebase('js/lib/GeoGebra/bundle-5-0-523-0/HTML5/5.0/web3d/', true);
     ggbApp.inject('ggb-element');
 });
