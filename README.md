@@ -1,11 +1,8 @@
 # Geogebra
 GeoGebra without CDN depedencies
 
-### GeoGebra
-Manual user: https://wiki.geogebra.org/es/Manual
-
-### GeoGebra
-Manual de usuario: https://wiki.geogebra.org/es/Manual
+### Manual de usuario 
+https://wiki.geogebra.org/es/Manual
 
 ### Demos
 [Calculadora gráfica](https://anayarojo.github.io/geogebra/?type=graphing)
